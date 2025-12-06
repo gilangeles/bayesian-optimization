@@ -1,0 +1,81 @@
+[project]
+name = "bayesian-optimization"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "scikit-learn",
+    "scipy",
+    "typer",
+    "lightning",
+    "pytorch-lightning",
+    "numpy",
+    "tensorboard",
+    "loguru",
+    "matplotlib",
+
+]
+
+[project.optional-dependencies]
+cpu = [
+  "torch==2.8.0",
+  "torchvision==0.23.0",
+]
+cu128 = [
+  "torch==2.8.0",
+  "torchvision==0.23.0",
+]
+rocm = [
+  "torch==2.8.0",
+  "torchvision==0.23.0",
+  "pytorch-triton-rocm",
+]
+
+[tool.uv]
+conflicts = [
+  [
+    { extra = "cpu" },
+    { extra = "cu128" },
+    { extra = "rocm" },
+  ],
+]
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cpu", extra = "cpu" },
+  { index = "pytorch-cu128", extra = "cu128" },
+  { index = "pytorch-rocm", extra = "rocm" },
+]
+torchvision = [
+  { index = "pytorch-cpu", extra = "cpu" },
+  { index = "pytorch-cu128", extra = "cu128" },
+  { index = "pytorch-rocm", extra = "rocm" },
+]
+pytorch-triton-rocm = [
+  { index = "pytorch-rocm", extra = "rocm" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-rocm"
+url = "https://download.pytorch.org/whl/rocm6.3"
+explicit = true
+
+
+[tool.mypy]
+python_version = "3.12"
+platform = "linux"
+show_column_numbers = true
+follow_imports = "normal"
+ignore_missing_imports = true
+allow_redefinition = true
