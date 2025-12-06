@@ -24,7 +24,7 @@ def _get_next_x(
     f_best: float,
     bounds: list[float] | tuple[float, float],
 ) -> float:
-    """_summary_
+    """finds the next x given the current best observed f(x)
 
     Args:
         gp (GaussianProcessRegressor): Gaussian Process Regressor function
@@ -64,7 +64,7 @@ def optimize(
     kernel: "Kernel | None" = None,
     plot_graph_location: str | None = None,
 ):
-    """_summary_
+    """the main bayesian optimization function with plotting
 
     Args:
         objective_func (Callable[[float], float]): _Function to optimize_
