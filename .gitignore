@@ -7,6 +7,7 @@ wheels/
 .devcontainer/
 bayesian_optimizer_plots/
 *.pdf
+!docs/*.pdf
 models/
 runs/
 test.ipynb
