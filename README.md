@@ -3,7 +3,7 @@
 ## How to get started
 
 1. install `uv`
-2. run `uv run --extra cu128 python main.py train` to init the virtual environment and run the training for GPU-enabled machines and `uv run --extra cpu python main.py train` for CPU-only machines
+2. run `uv run --extra cu128 python main.py train` to init the virtual environment and run the training for GPU-enabled machines
 3. run `uv run python main.py train --help` for more help on arguments
 
 `uv run` automatically creates a virtual environment that installs all the necessary requirements needed to run the script.

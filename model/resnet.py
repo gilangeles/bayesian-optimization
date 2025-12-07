@@ -76,7 +76,7 @@ class ResNet(nn.Module):
 
 
         Args:
-            num_blocks (list[int]): _description_
+            num_blocks (list[int]): number of basic blocks for each layer
             block (Type[nn.Module] | None, optional): _Block definition used
             for the layers; can technically be any module but BasicBlock for
             now_. If `None` is provided, BasicBlock will be used

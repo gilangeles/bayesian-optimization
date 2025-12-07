@@ -76,7 +76,7 @@ def train(
     trains the model, predicts the learning rate
     that results in a minimum validation loss
     """
-    root_path = Path("/workspace")
+    root_path = Path(".")
     model_save_path = Path(root_path / "models/")  # multiclass classification
     Path(model_save_path).mkdir(parents=False, exist_ok=True)
     L.seed_everything(seed, workers=True)
@@ -123,7 +123,7 @@ def train(
 
     if device_number is None:
         device_number = 0
-    resnet_model = ResNet(num_blocks=[3, 3, 3])
+    resnet_model = ResNet(num_blocks=[3, 3])
 
     logger = TensorBoardLogger(save_dir=model_save_path, name="tensorboad_logs")
 
